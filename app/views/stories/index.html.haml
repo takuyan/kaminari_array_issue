@@ -1,0 +1,23 @@
+%h1 Listing stories
+
+= paginate @stories
+
+%table
+  %tr
+    %th Medium
+    %th Title
+    %th
+    %th
+    %th
+
+  - @stories.each do |story|
+    %tr
+      %td= story.medium_id
+      %td= story.title
+      %td= link_to 'Show', medium_story_path(@medium, story)
+      %td= link_to 'Edit', edit_medium_story_path(@medium, story)
+      %td= link_to 'Destroy', medium_story_path(@medium, story), :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Story', new_medium_story_path(@medium.id)

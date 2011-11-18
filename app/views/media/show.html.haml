@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @medium.name
+
+  = link_to "belongs_to stories", medium_stories_path(@medium)
+
+= link_to 'Edit', edit_medium_path(@medium)
+\|
+= link_to 'Back', media_path

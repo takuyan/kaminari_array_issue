@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @blog.name
+%p
+  = @entries.class
+%p
+  = paginate @entries 
+  %ul 
+    - @entries.each do |e| 
+      %li 
+        = e.title
+
+= link_to 'Edit', edit_blog_path(@blog)
+\|
+= link_to 'Back', blogs_path

@@ -1,0 +1,17 @@
+= form_for @story, :url => "#{@story.new_record? ? medium_stories_path(@medium) : medium_story_path(@medium, @story)}" do |f|
+  -if @story.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@story.errors.count, "error")} prohibited this story from being saved:"
+      %ul
+        - @story.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :medium_id
+    = f.hidden_field :medium_id
+    = @story.medium.name
+  .field
+    = f.label :title
+    = f.text_field :title
+  .actions
+    = f.submit 'Save'
